@@ -1,23 +1,13 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 
 function App() {
+  const[bg,setBg]=useState("black");
+  const[color,setColor]=useState("white")
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <button className='change-color-btn' style={{background:bg,color:color}} onClick={()=>{setBg(bg==="gray"?"black":"gray");setColor(color==="black"?"white":"black")}} >{`Change BG to ${bg}`}</button>
     </div>
   );
 }
