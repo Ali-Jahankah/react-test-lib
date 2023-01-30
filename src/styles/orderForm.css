@@ -1,8 +1,17 @@
 .order-form-section {
   margin-top: 3em;
 }
-.order-form-section label {
+.terms-label {
   margin-left: 1em;
+  position: relative;
+}
+
+.test-span {
+  padding: 0.5em;
+  display: block;
+
+  margin-top: 1em;
+  background-color: rgb(84, 181, 217);
 }
 .order-form-section button {
   margin-top: 2.5em;
