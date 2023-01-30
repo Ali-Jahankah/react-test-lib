@@ -1,23 +1,16 @@
 import React, { useState } from "react";
-
+import OrderForm from "./OrderForm";
+import orderSummery from "../../styles/orderSummery.css";
+import orderForm from "../../styles/orderForm.css";
 const OrderSummery = () => {
-  const submitForm = () => {};
-
   return (
     <article className="order-article">
       <h1 className="order-title">Order Summery</h1>
       <section className="order-section">
-        <div className="scoops-div"></div>
-        <div className="toppings-div"></div>
-        <div className="total-div"></div>
-      </section>
-      <section className="order-form-section">
-        <form onSubmit={submitForm}></form>
-        <input type="checkbox" name="check-order" id="check-order" />
-        <label htmlFor="check-order">
-          I agree to <a href="£">Terms and Conditions</a>
-        </label>
-        <button type="submit">Confirm Order</button>
+        <div className="scoops-div">Number of scoops: </div>
+        <div className="toppings-div">Toppings: </div>
+        <div className="total-div">Total Price: $</div>
+        <OrderForm></OrderForm>
       </section>
     </article>
   );

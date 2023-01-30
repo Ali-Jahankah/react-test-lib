@@ -1,16 +1,13 @@
-import React from 'react';
+import React from "react";
 
-import '../../styles/app.css';
+import "../../styles/app.css";
+import OrderSummery from "../pages/OrderSummery";
 // import UnitTest from '../general/UnitTest';
 
 function App() {
-
-  
   return (
-    <div className="App">
-      {/* <UnitTest></UnitTest> */}
-    
-
+    <div className="app-article">
+      <OrderSummery></OrderSummery>
     </div>
   );
 }
