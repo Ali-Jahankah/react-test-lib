@@ -16,8 +16,7 @@ const OrderSummery = () => {
           <h2>Toppings</h2>
           <Options optionType="toppings"></Options>
         </div>
-        <div className="total-div">Total Price: $</div>
-        <OrderForm></OrderForm>
+        <h1>Total: $0</h1>
       </section>
     </article>
   );

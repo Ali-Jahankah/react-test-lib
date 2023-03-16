@@ -8,14 +8,20 @@ const Options = ({ optionType }) => {
   const [arr, setArr] = useState([]);
   const [error, setError] = useState(false);
   useEffect(() => {
+    const controller = new AbortController();
     axios
-      .get(`http://localhost:3030/${optionType}`)
+      .get(`http://localhost:3030/${optionType}`, { signal: controller.signal })
       .then((res) => {
         setArr(res.data);
       })
       .catch((err) => {
-        setError(true);
+        if (err.name !== "CanceledError") {
+          setError(true);
+        }
       });
+    return () => {
+      controller.abort();
+    };
   }, [optionType]);
   if (error) {
     return <ErrorAlert></ErrorAlert>;
@@ -26,7 +32,14 @@ const Options = ({ optionType }) => {
   const optionsItem = arr.map((item) => (
     <OptionsComponent key={item.name} item={item}></OptionsComponent>
   ));
-  return <div>{optionsItem}</div>;
+  return (
+    <>
+      <h2>{optionType}</h2>
+      <p>{optionType === "scoops" ? "$2" : "$1.5"} per item</p>
+      <h3>Total {optionType}: $</h3>
+      <div>{optionsItem}</div>
+    </>
+  );
 };
 
 export default Options;
