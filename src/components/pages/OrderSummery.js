@@ -18,9 +18,9 @@ const OrderSummery = () => {
           <Options optionType="toppings"></Options>
         </div>
         <h1>
-          {!totals.scoops
+          {!totals.scoops && !totals.toppings
             ? "Total: $0"
-            : "$" + Number(totals.scoops) + Number(totals.toppings)}
+            : "Total: $" + Number(totals.scoops + totals.toppings)}
         </h1>
       </section>
     </article>

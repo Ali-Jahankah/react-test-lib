@@ -37,5 +37,10 @@ test("Update scoop and toppings subtotal when scoops and toppings change", async
   await user.type(name2Input, "2");
   expect(name1Input).toHaveValue(2);
   expect(name2Input).toHaveValue(2);
+  await user.clear(toppings1);
+  await user.clear(toppings2);
+  await user.type(toppings1, "3");
+  await user.type(toppings2, "3");
+  expect(total).toHaveTextContent("Total: $17", { exact: true });
 });
 // test();
