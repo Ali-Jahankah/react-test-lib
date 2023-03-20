@@ -22,6 +22,7 @@ export const OrderStatesProvider = (props) => {
   };
   const updateOrder = (type, name, number) => {
     const copyOptions = { ...options };
+
     copyOptions[type][name] = number;
     setOpteions(copyOptions);
   };
@@ -30,8 +31,8 @@ export const OrderStatesProvider = (props) => {
   };
   const totalOptionsPrice = (type) => {
     const myArr = Object.values(options[type]);
-    const total = myArr.reduce((val, total) => total + val, 0);
-    return total * prices.type;
+    const total = myArr.reduce((total, val) => total + val, 0);
+    return total * prices[type];
   };
   const totals = {
     scoops: totalOptionsPrice("scoops"),

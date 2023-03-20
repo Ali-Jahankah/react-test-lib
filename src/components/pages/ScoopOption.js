@@ -1,7 +1,8 @@
 import React from "react";
 import { useOrderContext } from "../../contexts/OrderContext";
 const ScoopOption = ({ item }) => {
-  const { updateOrder } = useOrderContext;
+  const { updateOrder } = useOrderContext();
+
   return (
     <div className="scoop-div">
       <img
@@ -11,7 +12,9 @@ const ScoopOption = ({ item }) => {
       <h3>{item["name"]}</h3>
       <input
         type="number"
-        onChange={(e) => updateOrder("scoop", item.name, e.target.value)}
+        onChange={(e) => {
+          updateOrder("scoops", item.name, parseInt(e.target.value));
+        }}
         data-testid={item.name + "-scoop"}
       />
     </div>
